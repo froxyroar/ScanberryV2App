@@ -1,0 +1,13 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="100dp"
+        android:height="100dp"
+        android:gravity="center">
+        <bitmap
+            android:src="@drawable/ic_strawberry"
+            android:gravity="fill"
+            android:antialias="true"
+            android:width="100dp"
+            android:height="100dp"/>
+    </item>
+</layer-list>

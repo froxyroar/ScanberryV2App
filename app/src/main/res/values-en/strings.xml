@@ -1,0 +1,53 @@
+<resources>
+    <!-- Onboarding -->
+    <string name="onb_title_1">Instant Strawberry Ripeness Detection with AI!</string>
+    <string name="onb_desc_1">Get real-time ripeness analysis by scanning or uploading a photo. Results are saved in history, complete with personal settings and profile.</string>
+    <string name="onb_title_2">Why Choose Us?</string>
+    <string name="onb_desc_2">Advanced algorithms for high-accuracy classification and instant analysis with saved data that’s easy to access anytime.</string>
+    <string name="onb_title_3">Start Classifying Your Strawberries Now!</string>
+    <string name="onb_desc_3">Use our AI to quickly and easily determine strawberry ripeness. Just open the camera or upload a photo now!</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
+    <string name="back">Back</string>
+
+    <!-- GambarScreen -->
+    <string name="select_image">Select Image</string>
+    <string name="classification_result">Classification Result</string>
+    <string name="result_label">Result :</string>
+
+    <!-- Labels klasifikasi -->
+    <string name="label_unripe">Unripe</string>
+    <string name="label_fully_ripe_a">Fully Ripe A</string>
+    <string name="label_fully_ripe_b">Fully Ripe B</string>
+    <string name="label_half_ripe_a">Half Ripe A</string>
+    <string name="label_half_ripe_b">Half Ripe B</string>
+    <string name="label_unknown">Unknown</string>
+    <string name="unit_fruit">Fruits</string>
+
+    <!-- HomeScreen -->
+    <string name="app_name">ScanberryV2</string>
+    <string name="instructions">Usage Instructions</string>
+    <string name="settings">Settings</string>
+
+    <!-- PetunjukDialog -->
+    <string name="dlg_instructions_title">Usage Instructions</string>
+    <string name="dlg_instructions_text">1. Tap the camera button\n2. Choose gallery or camera\n3. Wait for classification result</string>
+    <string name="close">Close</string>
+
+    <!-- PilihDialog -->
+    <string name="dlg_choose_title">Please Choose:</string>
+    <string name="dlg_realtime">Realtime Detection</string>
+    <string name="dlg_upload">Upload Image</string>
+
+    <!-- RealtimeScreen -->
+    <string name="realtime_title">Realtime</string>
+    <string name="snapshot_save">Save</string>
+    <string name="label_counts">Details :</string>
+
+    <!-- SettingsDialog -->
+    <string name="settings_title">Settings</string>
+    <string name="language_indonesia">Indonesia</string>
+    <string name="language_english">English</string>
+    <string name="dark_light_mode">Light / Dark Mode</string>
+    <string name="save">Save</string>
+</resources>

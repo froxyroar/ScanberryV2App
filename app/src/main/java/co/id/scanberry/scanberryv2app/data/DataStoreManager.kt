@@ -22,7 +22,7 @@ class DataStoreManager(private val ctx: Context) {
     }
 
     val isDarkMode: Flow<Boolean> = ctx.dataStore.data.map { prefs ->
-        prefs[KEY_DARK] ?: false
+        prefs[KEY_DARK] == true
     }
 
     val language: Flow<String> = ctx.dataStore.data.map { prefs ->
@@ -31,7 +31,7 @@ class DataStoreManager(private val ctx: Context) {
 
     // ✅ Add firstRun flag
     val firstRun: Flow<Boolean> = ctx.dataStore.data.map { prefs ->
-        prefs[KEY_FIRST_RUN] ?: true
+        prefs[KEY_FIRST_RUN] != false
     }
 
     // ✅ Function to set firstRun flag

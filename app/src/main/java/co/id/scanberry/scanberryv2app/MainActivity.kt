@@ -4,12 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.runtime.*
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import co.id.scanberry.scanberryv2app.NavigationGraph
 import co.id.scanberry.scanberryv2app.ui.theme.ScanBerryTheme
 import co.id.scanberry.scanberryv2app.viewmodel.SettingsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,8 +42,10 @@ class MainActivity : ComponentActivity() {
             }
 
             // 3) Read these ONCE in composable scope:
-            val context = LocalContext.current               // :contentReference[oaicite:0]{index=0}
-            val configuration = LocalConfiguration.current   // :contentReference[oaicite:1]{index=1}
+            val context =
+                LocalContext.current               // :contentReference[oaicite:0]{index=0}
+            val configuration =
+                LocalConfiguration.current   // :contentReference[oaicite:1]{index=1}
 
             CompositionLocalProvider(LocalAppLocale provides locale) {
                 // 4) Use SideEffect so that this runs after composition,

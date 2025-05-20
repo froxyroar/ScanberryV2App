@@ -88,7 +88,6 @@ dependencies {
 
     // Hilt
     implementation(libs.hilt.android)
-    implementation(libs.camera.view)
     kapt(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 

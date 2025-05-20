@@ -9,7 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -27,14 +27,12 @@ import co.id.scanberry.scanberryv2app.ui.components.DetectionOverlay
 import co.id.scanberry.scanberryv2app.util.FileUtil
 import co.id.scanberry.scanberryv2app.viewmodel.ClassifierViewModel
 import co.id.scanberry.scanberryv2app.R
-import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GambarScreen(nav: NavController) {
     val vm: ClassifierViewModel = hiltViewModel()
     val detections by vm.detections.collectAsState()
-    val loading    by vm.loading.collectAsState()
     var uri by remember { mutableStateOf<Uri?>(null) }
     var imgSize by remember { mutableStateOf(300f to 300f) }
     val context = LocalContext.current
@@ -42,7 +40,7 @@ fun GambarScreen(nav: NavController) {
     val launcher = rememberLauncherForActivityResult(GetContent()) { sel ->
         sel?.let {
             uri = it
-            FileUtil.from(context, it)?.let(vm::classifyImage)
+            FileUtil.from(context, it).let(vm::classifyImage)
         }
     }
 
@@ -53,7 +51,7 @@ fun GambarScreen(nav: NavController) {
                     title = { Text(text = stringResource(R.string.classification_result)) },
                     navigationIcon = {
                         IconButton(onClick = { nav.popBackStack() }) {
-                            Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                         }
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
@@ -104,8 +102,14 @@ fun GambarScreen(nav: NavController) {
                                 }
                             )
                             if (detections.isNotEmpty()) {
-                                val (w,h) = imgSize
-                                DetectionOverlay(detections, w, h)
+                                val (w, h) = imgSize
+                                if (w > 0f && h > 0f) {
+                                    DetectionOverlay(
+                                        detections = detections,
+                                        imageWidth = w,
+                                        imageHeight = h
+                                    )
+                                }
                             }
                         }
                     }

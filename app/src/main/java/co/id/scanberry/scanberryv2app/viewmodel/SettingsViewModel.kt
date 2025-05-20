@@ -20,7 +20,7 @@ class SettingsViewModel(app: Application): AndroidViewModel(app) {
         scope = viewModelScope, started = SharingStarted.Eagerly, initialValue = "en"
     )
 
-    // ✅ Expose firstRun as StateFlow
+    // Expose firstRun as StateFlow
     val firstRun = store.firstRun.stateIn(
         scope = viewModelScope, started = SharingStarted.Eagerly, initialValue = true
     )
@@ -33,7 +33,7 @@ class SettingsViewModel(app: Application): AndroidViewModel(app) {
         store.setLanguage(lang)
     }
 
-    // ✅ Setter for firstRun
+    // Setter for firstRun
     fun setFirstRun(value: Boolean) = viewModelScope.launch {
         store.setFirstRun(value)
     }

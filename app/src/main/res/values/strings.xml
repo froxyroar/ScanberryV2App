@@ -27,7 +27,6 @@
     <!-- HomeScreen -->
     <string name="app_name">ScanberryV2</string>
     <string name="instructions">Petunjuk Penggunaan</string>
-    <string name="settings">Pengaturan</string>
 
     <!-- PetunjukDialog -->
     <string name="dlg_instructions_title">Petunjuk Penggunaan</string>

@@ -1,32 +1,29 @@
 [versions]
-agp = "8.9.2"
+agp = "8.10.0"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.7"
+lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
-composeBom = "2025.04.01"
+composeBom = "2025.05.00"
 coreSplash = "1.0.1"
 accompanist = "0.34.0"
 
-cameraCamera2 = "1.4.2"                # stable CameraX :contentReference[oaicite:4]{index=4}
-cameraLifecycle = "1.4.2"                # stable CameraX :contentReference[oaicite:5]{index=5}
-cameraView = "1.4.2"        # PreviewView support :contentReference[oaicite:6]{index=6}
+cameraVersion = "1.4.2"
 
-datastorePreferences = "1.1.4"                # Preferences DataStore :contentReference[oaicite:7]{index=7}
+datastorePreferences = "1.1.6"                # Preferences DataStore :contentReference[oaicite:7]{index=7}
 
 coilCompose = "2.4.0"
 
-hiltAndroid = "2.48"
-hiltNavigationCompose = "1.1.0-alpha01"
+hiltAndroid = "2.49"
+hiltNavigationCompose = "1.2.0"
 retrofit = "2.9.0"
 okhttp = "4.11.0"
-gson = "2.10.1"
-coroutinesAndroid = "1.7.0"
-serializationJson = "1.5.0"
-cameraViewVersion = "1.4.2"
+gson = "2.11.0"
+coroutinesAndroid = "1.7.3"
+serializationJson = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,9 +41,10 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
-androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "cameraCamera2" }
-androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "cameraLifecycle" }
-androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "cameraView" }
+androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "cameraVersion" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "cameraVersion" }
+androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "cameraVersion" }
+
 
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastorePreferences" }
 
@@ -65,7 +63,6 @@ converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", ve
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesAndroid" }
 serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJson" }
-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "cameraViewVersion" }
 
 
 [plugins]

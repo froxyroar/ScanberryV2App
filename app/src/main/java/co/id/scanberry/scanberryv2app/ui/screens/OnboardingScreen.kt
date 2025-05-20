@@ -1,10 +1,26 @@
 package co.id.scanberry.scanberryv2app.ui.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -30,22 +46,22 @@ fun OnboardingScreen(
 
     val pages = listOf(
         Page(
-            titleRes  = R.string.onb_title_1,
-            descRes   = R.string.onb_desc_1,
+            titleRes = R.string.onb_title_1,
+            descRes = R.string.onb_desc_1,
             buttonRes = R.string.next
         ),
         Page(
-            titleRes  = R.string.onb_title_2,
-            descRes   = R.string.onb_desc_2,
+            titleRes = R.string.onb_title_2,
+            descRes = R.string.onb_desc_2,
             buttonRes = R.string.next
         ),
         Page(
-            titleRes  = R.string.onb_title_3,
-            descRes   = R.string.onb_desc_3,
+            titleRes = R.string.onb_title_3,
+            descRes = R.string.onb_desc_3,
             buttonRes = R.string.start
         )
     )
-    var idx by remember { mutableStateOf(0) }
+    var idx by remember { mutableIntStateOf(0) }
 
     Box(
         Modifier
@@ -65,16 +81,16 @@ fun OnboardingScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 Text(
-                    text      = stringResource(id = pages[idx].titleRes),
-                    style     = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+                    text = stringResource(id = pages[idx].titleRes),
+                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     textAlign = TextAlign.Center,
-                    modifier  = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth()
                 )
                 Text(
-                    text      = stringResource(id = pages[idx].descRes),
-                    style     = MaterialTheme.typography.bodyLarge,
+                    text = stringResource(id = pages[idx].descRes),
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.Center,
-                    modifier  = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth()
                 )
             }
         }
@@ -92,7 +108,9 @@ fun OnboardingScreen(
                     Modifier
                         .size(if (i == idx) 12.dp else 8.dp)
                         .background(
-                            color = if (i == idx) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
+                            color = if (i == idx) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(
+                                alpha = 0.3f
+                            ),
                             shape = RoundedCornerShape(50)
                         )
                 )

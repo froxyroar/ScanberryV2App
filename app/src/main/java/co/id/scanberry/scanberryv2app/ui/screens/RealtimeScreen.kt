@@ -25,7 +25,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -118,6 +118,9 @@ fun RealtimeScreen(nav: NavController) {
                 .build()
                 .apply { surfaceProvider = previewView.surfaceProvider }
 
+            // Add a variable to track last sent time
+            var lastSentTime = 0L
+
             val analysisUseCase = ImageAnalysis.Builder()
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                 .build()
@@ -125,14 +128,18 @@ fun RealtimeScreen(nav: NavController) {
                     analysis.setAnalyzer(ContextCompat.getMainExecutor(context)) { imageProxy ->
                         try {
                             if (!loading && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                val bitmap = previewView.bitmap
-                                if (bitmap != null) {
-                                    val resized = bitmap.scale(640, 640)
-                                    val part = resized.toMultipart("file")
-                                    scope.launch {
-                                        val start = System.currentTimeMillis()
-                                        vm.classifyPart(part, 0)
-                                        inferenceTime = System.currentTimeMillis() - start
+                                val now = System.currentTimeMillis()
+                                if (now - lastSentTime >= 100) {
+                                    lastSentTime = now
+                                    val bitmap = previewView.bitmap
+                                    if (bitmap != null) {
+                                        val resized = bitmap.scale(640, 640)
+                                        val part = resized.toMultipart("file")
+                                        scope.launch {
+                                            val start = System.currentTimeMillis()
+                                            vm.classifyPart(part, 0)
+                                            inferenceTime = System.currentTimeMillis() - start
+                                        }
                                     }
                                 }
                             }
@@ -161,7 +168,7 @@ fun RealtimeScreen(nav: NavController) {
                 title = { Text(text = stringResource(R.string.realtime_title)) },
                 navigationIcon = {
                     IconButton(onClick = { nav.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -228,7 +235,7 @@ fun RealtimeScreen(nav: NavController) {
 
             Spacer(Modifier.height(16.dp))
             Text(
-                text = "Inference time: $inferenceTime ms",
+                text = "Inference time: ${String.format(Locale.US, "%03d", inferenceTime)} ms",
                 style = MaterialTheme.typography.bodyMedium
             )
 

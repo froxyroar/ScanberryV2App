@@ -37,7 +37,6 @@ fun OnboardingScreen(
     nav: NavController,
     settingsVm: SettingsViewModel = hiltViewModel()
 ) {
-    // Data class dengan stringResource
     data class Page(
         val titleRes: Int,
         val descRes: Int,
@@ -68,7 +67,6 @@ fun OnboardingScreen(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Konten utama di-center
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -95,7 +93,6 @@ fun OnboardingScreen(
             }
         }
 
-        // Indikator titik
         Row(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -118,7 +115,6 @@ fun OnboardingScreen(
             }
         }
 
-        // Tombol navigasi
         Row(
             modifier = Modifier
                 .align(Alignment.BottomCenter)

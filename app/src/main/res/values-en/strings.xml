@@ -14,6 +14,8 @@
     <string name="select_image">Select Image</string>
     <string name="classification_result">Classification Result</string>
     <string name="result_label">Result :</string>
+    <string name="no_strawberry_detected">No strawberry are detected.</string>
+    <string name="try_another_image">Please choose another image.</string>
 
     <!-- Labels klasifikasi -->
     <string name="label_unripe">Unripe</string>
@@ -41,7 +43,8 @@
     <!-- RealtimeScreen -->
     <string name="realtime_title">Realtime</string>
     <string name="snapshot_save">Save</string>
-    <string name="label_counts">Details :</string>
+    <string name="label_counts">Result :</string>
+    <string name="total_label">The total amount of strawberries that are detected is</string>
 
     <!-- SettingsDialog -->
     <string name="settings_title">Settings</string>

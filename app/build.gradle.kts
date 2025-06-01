@@ -102,6 +102,8 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.accompanist.navigation.animation)
 
+    implementation(libs.androidx.material.icons.extended)
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

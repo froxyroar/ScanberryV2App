@@ -3,7 +3,7 @@
     <style name="Theme.ScanberryV2App" parent="android:Theme.Material.Light.NoActionBar" />
     <style name="Theme.ScanberryV2App.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/bg1</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_scaled_night</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_scaled</item>
         <!-- MUST be a reference -->
         <item name="postSplashScreenTheme">@style/Theme.ScanberryV2App</item>
     </style>

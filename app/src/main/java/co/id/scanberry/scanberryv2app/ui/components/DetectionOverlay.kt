@@ -69,11 +69,11 @@ fun DetectionOverlay(
             // Draw bounding box
             drawRect(
                 color = when (det.classId) {
-                    0 -> Color.Green
+                    0 -> Color.Red
                     1 -> Color.Yellow
-                    2 -> Color.Red
+                    2 -> Color.Blue
                     3 -> Color.Cyan
-                    4 -> Color.Blue
+                    4 -> Color.Green
                     else -> Color.Magenta
                 },
                 topLeft = Offset(left, top),
@@ -82,7 +82,7 @@ fun DetectionOverlay(
             )
 
             // Draw label
-            val txt = listOf("UNR", "FRA", "FRB", "HRA", "HRB").getOrNull(det.classId) ?: "UNK"
+            val txt = listOf("FRA", "FRB", "HRA", "HRB", "UNR").getOrNull(det.classId) ?: "UNK"
             val label = "$txt ${"%.2f".format(det.confidence)}"
             drawContext.canvas.nativeCanvas.apply {
                 val bg = android.graphics.Paint().apply {

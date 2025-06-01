@@ -20,21 +20,17 @@ fun SplashLogicScreen(nav: NavController, settingsVm: SettingsViewModel) {
     val isFirstRun by settingsVm.firstRun.collectAsState()
 
     LaunchedEffect(isFirstRun) {
-        delay(1200) // Optional: splash screen visible a bit
+        delay(1200)
         nav.navigate(if (isFirstRun) "onboarding" else "home") {
             popUpTo("splash") { inclusive = true }
         }
     }
-
-    // Display your splash animation here
     Box(
         Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.Center
     ) {
-        // Example:
         CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
-        // You can put an actual Lottie or logo animation here
     }
 }

@@ -25,19 +25,21 @@ fun PengaturanDialog(
     vm: SettingsViewModel,
     onClose: () -> Unit
 ) {
-    // 1) Read the current values from the ViewModel
     val currentDark by vm.isDarkMode.collectAsState()
     val currentLang by vm.language.collectAsState()
 
-    // 2) Local temp states for toggles
     var tempDark by remember { mutableStateOf(currentDark) }
     var tempLang by remember { mutableStateOf(currentLang) }
 
+    LaunchedEffect(currentDark, currentLang) {
+        tempDark = currentDark
+        tempLang = currentLang
+    }
     Box(
         Modifier
             .fillMaxSize()
             .background(Color(0x80000000))
-            .clickable(onClick = onClose) // tap outside to close without saving
+            .clickable(onClick = onClose)
     ) {
         Box(
             Modifier
@@ -46,6 +48,7 @@ fun PengaturanDialog(
                 .clip(RoundedCornerShape(16.dp))
                 .background(Color(0xFFe74c3c))
                 .padding(24.dp)
+                .clickable(enabled = false) { /* Consume click */ }
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 // Header
@@ -65,16 +68,14 @@ fun PengaturanDialog(
                     )
                 }
 
-                // Language toggles, updating tempLang only
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                        // English
                         IconToggleButton(
                             checked = tempLang == "en",
-                            onCheckedChange = { tempLang = if (it) "en" else "id" },
+                            onCheckedChange = { isChecked -> if (isChecked) tempLang = "en" },
                             modifier = Modifier.size(80.dp)
                         ) {
                             Image(
@@ -86,10 +87,9 @@ fun PengaturanDialog(
                                     .clip(RoundedCornerShape(8.dp))
                             )
                         }
-                        // Indonesian
                         IconToggleButton(
                             checked = tempLang == "id",
-                            onCheckedChange = { tempLang = if (it) "id" else "en" },
+                            onCheckedChange = { isChecked -> if (isChecked) tempLang = "id" },
                             modifier = Modifier.size(80.dp)
                         ) {
                             Image(
@@ -112,7 +112,6 @@ fun PengaturanDialog(
                     )
                 }
 
-                // Theme toggle, updating tempDark only
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -133,8 +132,6 @@ fun PengaturanDialog(
                         )
                     )
                 }
-
-                // 3) Save button: commit temp → ViewModel, then close
                 Button(
                     onClick = {
                         vm.setLanguage(tempLang)

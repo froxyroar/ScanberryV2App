@@ -14,7 +14,8 @@
     <string name="select_image">Pilih Gambar</string>
     <string name="classification_result">Hasil klasifikasi</string>
     <string name="result_label">Hasil :</string>
-
+    <string name="no_strawberry_detected">Tidak ada stroberi terdeteksi.</string>
+    <string name="try_another_image">Silakan coba gambar lain yang lebih jelas.</string>
     <!-- Labels klasifikasi -->
     <string name="label_unripe">Mentah</string>
     <string name="label_fully_ripe_a">Matang Kualitas A</string>
@@ -41,12 +42,13 @@
     <!-- RealtimeScreen -->
     <string name="realtime_title">Realtime</string>
     <string name="snapshot_save">Simpan</string>
-    <string name="label_counts">Keterangan :</string>
+    <string name="label_counts">Hasil Klasifikasi :</string>
+    <string name="total_label">Total stroberi yang terdeteksi</string>
 
     <!-- SettingsDialog -->
     <string name="settings_title">Pengaturan</string>
     <string name="language_indonesia">Indonesia</string>
-    <string name="language_english">English</string>
+    <string name="language_english">Inggris</string>
     <string name="dark_light_mode">Mode Terang / Gelap</string>
     <string name="save">Simpan</string>
 </resources>

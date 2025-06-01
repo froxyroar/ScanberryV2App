@@ -25,7 +25,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_strawberry"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_strawberry_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.ScanberryV2App"
